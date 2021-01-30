@@ -4,12 +4,12 @@ interface Props {
   startCount: number
 }
 
-export default function UseStateComp({ startCount }: Props): ReactElement {
+export default function UseStateSimple({ startCount }: Props): ReactElement {
   const [count, setCount] = useState(startCount)
 
   return (
     <div className="container">
-      <h3 style={{ marginTop: '5rem' }}>Typescript React Examples</h3>
+      <h3 style={{ marginTop: '5rem' }}>TS useEffect Single Var</h3>
       <div style={{ marginTop: '5rem' }} className="row">
         <div className="column">
           <div><h3>{`Count is: ${count}`}</h3></div>
