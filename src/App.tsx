@@ -1,6 +1,7 @@
-import { lazy, Suspense, ReactElement } from 'react'
+import { useState, useEffect, lazy, Suspense, ReactElement } from 'react'
 import { BrowserRouter as RouterWrapper, Switch, Route } from 'react-router-dom';
 
+const Header = lazy(() => import('./components/Header'));
 const Home = lazy(() => import('./components/Home'));
 const UseStateSimple = lazy(() => import( './components/UseStateSimple'));
 const UseStateComplex = lazy(() => import( './components/UseStateComplex'));
@@ -15,10 +16,20 @@ const links = [
   { text: 'UseReducer Example', url: '/use-reducer' }
 ]
 
-export default function routes(): ReactElement {
+export default function App(): ReactElement {
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    let timeout = setTimeout(() => setShow(true), 100)
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [])
+
   return (
     <RouterWrapper>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={show ? <Header /> : <p></p>}>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home links={links} />
