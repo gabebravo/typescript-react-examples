@@ -33,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Home({ links }: Props): ReactElement {
+export default function Home({ links = [] }: Props): ReactElement {
   let history = useHistory();
   const classes = useStyles();
 
   // MAGIC: React will internally assign unique keys when using React.Children.toArray for mapping elements
-  const renderLinks = () => (
+  const RenderLinks = (): ReactElement => (
     <>
       {React.Children.toArray(
         links.map(({ text, url }) => (
@@ -71,7 +71,7 @@ export default function Home({ links }: Props): ReactElement {
               }
               className={classes.root}
             >
-              {links && renderLinks()}
+              {links && <RenderLinks />}
             </List>
           </Paper>
         </Grid>
