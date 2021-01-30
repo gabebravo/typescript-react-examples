@@ -10,10 +10,10 @@ const UseReducerComp = lazy(() => import( './components/UseReducerComp'));
 const NoMatch = () => <>'There is nothing to see here'</>;
 
 const links = [
-  { text: 'UseState Simple Example', url: '/use-state-simple' },
-  { text: 'UseState Complex Example', url: '/use-state-complex' },
-  { text: 'UseContext Example', url: '/use-context' },
-  { text: 'UseReducer Example', url: '/use-reducer' }
+  { text: 'UseState Simple', url: '/use-state-simple' },
+  { text: 'UseState Complex', url: '/use-state-complex' },
+  { text: 'UseContext Simple', url: '/use-context' },
+  { text: 'UseReducer Simple', url: '/use-reducer' }
 ]
 
 export default function App(): ReactElement {
