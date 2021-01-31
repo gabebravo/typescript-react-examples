@@ -35,10 +35,6 @@ interface UserI {
   email: string
 }
 
-interface UserList {
-  userList: (UserI)[];
-}
-
 const defaultValues = {
   name: '',
   email: ''
@@ -55,10 +51,10 @@ export default function UseStateComplex(): ReactElement {
     reset();
   });
 
-  const CarriersAvailable = ({ userList }: UserList): ReactElement => {
-    return userList.length ? (
+  const CarriersAvailable = ({ usersList }: { usersList: UserI[]}) => {
+    return usersList.length ? (
       <div>
-        <Button 
+        <Button
           variant="outlined" 
           color="primary" 
           type="submit"
@@ -67,7 +63,7 @@ export default function UseStateComplex(): ReactElement {
           Clear
         </Button>
         <ul>
-          {userList.map(({ name, email }: UserI, index: number): ReactElement => (
+          {usersList.map(({ name, email }: UserI, index: number): ReactElement => (
             <li key={index}>
               <span>{`name: ${name}`}</span> // <span>{`email: ${email}`}</span>
             </li>
@@ -119,10 +115,39 @@ export default function UseStateComplex(): ReactElement {
           <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
               <h2>User List</h2>
-              <CarriersAvailable userList={users} />
+              <CarriersAvailable usersList={users} />
             </Paper>
           </Grid>
         </Grid>
     </div>
   )
 }
+
+// ALTERNATIVE WAY : DEFINE A SEPARATE TYPE FOR THIS >>
+  // interface UserList {
+  //   userList: (UserI)[];
+  // }
+
+  // const CarriersAvailable = ({ userList }: UserList): ReactElement => {
+  //   return userList.length ? (
+  //     <div>
+  //       <Button 
+  //         variant="outlined" 
+  //         color="primary" 
+  //         type="submit"
+  //         onClick={() => setUserInfo([])}
+  //       >
+  //         Clear
+  //       </Button>
+  //       <ul>
+  //         {userList.map(({ name, email }: UserI, index: number): ReactElement => (
+  //           <li key={index}>
+  //             <span>{`name: ${name}`}</span> // <span>{`email: ${email}`}</span>
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   ) : (
+  //     <span>There are no carriers available in your area</span>
+  //   );
+  // }
