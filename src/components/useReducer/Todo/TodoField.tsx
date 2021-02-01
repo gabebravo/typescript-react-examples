@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center'
   },
+  field: {
+    width: '60%',
+  },
 }));
 
 interface TodoI {
@@ -34,7 +37,6 @@ export default function TodoField(): ReactElement {
   const classes = useStyles();
 
   const submitHandler = handleSubmit(({ task }) => {
-    console.log('task', task)
     dispatch({ type: "add", task })
     reset();
   });
@@ -45,7 +47,7 @@ export default function TodoField(): ReactElement {
       <form onSubmit={submitHandler}>
         <div className={classes.fields}>
           <Controller
-            as={<TextField />}
+            as={<TextField className={classes.field} />}
             name="task"
             label="Enter Task"
             control={control}
