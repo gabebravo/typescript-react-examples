@@ -5,15 +5,15 @@ const Header = lazy(() => import('./components/Header'));
 const Home = lazy(() => import('./components/Home'));
 const UseStateSimple = lazy(() => import( './components/UseStateSimple'));
 const UseStateComplex = lazy(() => import( './components/UseStateComplex'));
+const UseReducerTodo = lazy(() => import( './components/useReducer/Todo/TodoList'));
 const UseContextComp = lazy(() => import( './components/UseContextComp'));
-const UseReducerComp = lazy(() => import( './components/UseReducerComp'));
 const NoMatch = () => <>'There is nothing to see here'</>;
 
 const links = [
   { text: 'UseState Simple', url: '/use-state-simple' },
   { text: 'UseState Complex', url: '/use-state-complex' },
+  { text: 'UseReducer Todo', url: '/use-reducer-todo' },
   { text: 'UseContext Simple', url: '/use-context' },
-  { text: 'UseReducer Simple', url: '/use-reducer' }
 ]
 
 export default function App(): ReactElement {
@@ -40,11 +40,11 @@ export default function App(): ReactElement {
           <Route exact path="/use-state-complex">
             <UseStateComplex />
           </Route>
+          <Route path="/use-reducer-todo">
+            <UseReducerTodo />
+          </Route>
           <Route path="/use-context">
             <UseContextComp />
-          </Route>
-          <Route path="/use-reducer">
-            <UseReducerComp />
           </Route>
           <Route path="*">
             <NoMatch />

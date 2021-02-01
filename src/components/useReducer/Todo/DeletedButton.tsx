@@ -4,10 +4,10 @@ interface Props {
   
 }
 
-export default function UseReducerComp({}: Props): ReactElement {
+export default function DeletedButton({}: Props): ReactElement {
   return (
     <div>
-      UseReducerComp
+      
     </div>
   )
 }
