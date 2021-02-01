@@ -29,7 +29,7 @@ const defaultValues = {
 };
 
 export default function TodoField(): ReactElement {
-  const { reset, control, handleSubmit, errors } = useForm<TodoI>({ defaultValues });
+  const { reset, control, handleSubmit } = useForm<TodoI>({ defaultValues });
   const { dispatch } = useContext(TodoContext);
   const classes = useStyles();
 

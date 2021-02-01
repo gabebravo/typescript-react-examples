@@ -23,7 +23,7 @@ interface Props {
   startCount: number
 }
 
-export default function UseStateSimple({ startCount }: Props): ReactElement {
+export default function Counter({ startCount }: Props): ReactElement {
   const [count, setCount] = useState(startCount);
   const classes = useStyles();
 

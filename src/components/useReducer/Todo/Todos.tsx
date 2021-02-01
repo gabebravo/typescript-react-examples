@@ -14,11 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface Props {
-  
-}
-
-export default function Todos({}: Props): ReactElement {
+export default function Todos(): ReactElement {
   const { state } = useContext(TodoContext);
   const classes = useStyles();
 

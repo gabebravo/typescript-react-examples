@@ -41,7 +41,7 @@ const defaultValues = {
 };
 
 // https://stackoverflow.com/questions/60647976/using-textfield-component-from-material-ui-with-react-hook-form-shows-warnin
-export default function UseStateComplex(): ReactElement {
+export default function PersonForm(): ReactElement {
   const { reset, control, handleSubmit, errors } = useForm<UserI>({ defaultValues });
   const [users, setUserInfo] = useState<UserI[] | []>([])
   const classes = useStyles();
@@ -65,7 +65,9 @@ export default function UseStateComplex(): ReactElement {
         <ul>
           {usersList.map(({ name, email }: UserI, index: number): ReactElement => (
             <li key={index}>
-              <span>{`name: ${name}`}</span> // <span>{`email: ${email}`}</span>
+              <span>{`name: ${name}`}</span>
+              <span>{` // `}</span>
+              <span>{`email: ${email}`}</span>
             </li>
           ))}
         </ul>
