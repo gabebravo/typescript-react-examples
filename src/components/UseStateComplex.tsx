@@ -94,16 +94,28 @@ export default function UseStateComplex(): ReactElement {
               <form onSubmit={submitHandler}>
                 <div className={classes.fields}>
                   <Controller
-                    as={<TextField />}
                     name="name"
-                    label="First Name"
                     control={control}
+                    render={({ onChange, onBlur, value }) => (
+                      <TextField
+                        label="First Name"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                      />
+                    )}
                   />
                   <Controller
-                    as={<TextField />}
                     name="email"
-                    label="Email"
                     control={control}
+                    render={({ onChange, onBlur, value }) => (
+                      <TextField
+                        label="Email"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                      />
+                    )}
                   />
                   <Button variant="outlined" color="primary" type="submit">
                     Submit
