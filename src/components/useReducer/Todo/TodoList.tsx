@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TodoField from './TodoField'
 import Todos from './Todos'
+import TodoProvider from './TodoProvider'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,25 +33,27 @@ export default function TodoList(): ReactElement {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography 
-              className={classes.header} 
-              variant="h5" 
-              gutterBottom>
-                TS useReducer Todo List Example
-            </Typography>
+    <TodoProvider>
+      <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Typography 
+                className={classes.header} 
+                variant="h5" 
+                gutterBottom>
+                  TS useReducer Todo List Example
+              </Typography>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <TodoField />
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <TodoField />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Todos />
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <Todos />
-          </Grid>
-        </Grid>
-    </div>
+      </div>
+      </TodoProvider>
   )
 }

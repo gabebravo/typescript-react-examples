@@ -1,5 +1,5 @@
-import { ReactElement, useReducer } from 'react'
-import { todoReducer } from './todoReducer'
+import { ReactElement, useContext } from 'react'
+import { TodoContext } from './TodoProvider'
 import { useForm, Controller } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from "@material-ui/core/TextField";
@@ -30,7 +30,7 @@ const defaultValues = {
 
 export default function TodoField(): ReactElement {
   const { reset, control, handleSubmit, errors } = useForm<TodoI>({ defaultValues });
-  const [state, dispatch] = useReducer(todoReducer, [])
+  const { dispatch } = useContext(TodoContext);
   const classes = useStyles();
 
   const submitHandler = handleSubmit(({ task }) => {
@@ -39,7 +39,6 @@ export default function TodoField(): ReactElement {
     reset();
   });
 
-  console.log('state', state)
   return (
     <Paper className={classes.paper}>
       <h2>User Info</h2>

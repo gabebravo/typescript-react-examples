@@ -6,7 +6,7 @@ export interface ITodoListItem {
   completed: boolean;
 }
 
-type TodoListItemState = ITodoListItem[]
+export type TodoListItemState = ITodoListItem[]
 
 interface AddAction {
   type: "add";
@@ -26,7 +26,7 @@ interface CompleteAction {
   id: string;
 }
 
-type TodoListAction =
+export type TodoListAction =
     AddAction
   | EditAction
   | DeleteAction
